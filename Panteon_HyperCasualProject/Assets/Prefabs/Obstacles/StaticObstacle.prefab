@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8163853367563106967}
   - component: {fileID: 6246248779115744861}
   - component: {fileID: 4277961458878075798}
+  - component: {fileID: -1464738875953411943}
   m_Layer: 0
   m_Name: StaticObstacle
   m_TagString: Untagged
@@ -95,3 +96,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.12875415, y: 0.089122504, z: 0.041758485}
   m_Center: {x: 0, y: -0.0000000018626451, z: 0}
+--- !u!114 &-1464738875953411943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5597937346940432264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f4e800d1ea177408ee6b83d58b1d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkPointObject: {fileID: 7189053912960684192, guid: 8047d4dfa8133e24b832adf5724c3408, type: 3}
