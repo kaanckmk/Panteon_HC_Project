@@ -3,32 +3,89 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
 public class CharacterAnimationController : MonoBehaviour
 {
     private Animator _characterAnimator;
 
     private void Awake()
     {
-        _characterAnimator = GetComponent<Animator>();
+        _characterAnimator = transform.GetComponent<Animator>();
     }
     
-    public void AnimateIdle()
+    public void AnimateIdle(DataPassWithEvent rawData)
     {
-        _characterAnimator.SetBool("IsMoving",false);
+        if (rawData.gameObject == gameObject)
+        {   
+            _characterAnimator.SetBool("IsMoving",false);
+        }
+        else
+        {
+            return;
+        }
+    }
+    public void AnimateMoveForward(DataPassWithEvent rawData)
+    {
+        if (rawData.gameObject == gameObject)
+        {   
+            _characterAnimator.SetBool("IsMoving", true);
+        }
+        else
+        {
+            return;
+        }
     }
     public void AnimateMoveForward()
-    {
-        _characterAnimator.SetBool("IsMoving", true);
+    { 
+            _characterAnimator.SetBool("IsMoving", true);
     }
 
-    public void AnimateObstacleHit()
+    public void AnimateObstacleHit(DataPassWithEvent rawData)
     {
-        _characterAnimator.SetBool("HitObstacle", true);
+        if (rawData.gameObject == gameObject)
+        {   
+            _characterAnimator.SetBool("HitObstacle", true);
+        }
+        else
+        {
+            return;
+        }
+    }
+    public void StopHitObstacleAnimation(DataPassWithEvent rawData)
+    {
+        if (rawData.gameObject == gameObject)
+        {   
+            _characterAnimator.SetBool("HitObstacle", false);
+        }
+        else
+        {
+            return;
+        }
     }
 
-    public void StopHitObstacleAnimation()
+    public void AnimateFall(DataPassWithEvent rawData)
     {
-        _characterAnimator.SetBool("HitObstacle", false);
+        if (rawData.gameObject == gameObject)
+        {   
+            _characterAnimator.SetBool("IsFalling", true);
+        }
+        else
+        {
+            return;
+        }
     }
+
+    public void StopFallAnimation(DataPassWithEvent rawData)
+    {
+        if (rawData.gameObject == gameObject)
+        {   
+            _characterAnimator.SetBool("IsFalling", false);
+        }
+        else
+        {
+            return;
+        }
+    }
+    
+    
+    
 }

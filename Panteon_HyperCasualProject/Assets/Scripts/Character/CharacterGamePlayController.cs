@@ -4,13 +4,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class CharacterGamePlayController : MonoBehaviour
+public class CharacterGamePlayController : EventRaiser
 {
     [SerializeField] private Transform checkPointObject;
     
+    public void SendCharacterToCheckPoint(DataPassWithEvent rawData)
+    {
+        if (rawData.gameObject == gameObject)
+        {
+            transform.position = checkPointObject.position;
+        }
+        else
+        {
+            return;
+        }
+    }
     public void SendCharacterToCheckPoint()
     {
-        transform.parent.position = checkPointObject.position;
+            transform.position = checkPointObject.position;
     }
 
 }

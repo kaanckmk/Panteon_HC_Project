@@ -12,7 +12,6 @@ public class EventListener : MonoBehaviour
 
     private void OnEnable()
     {
-
         if (eventAndResponses.Count >= 1)
         {
             foreach (EventAndResponse eAndR in eventAndResponses)
@@ -20,8 +19,6 @@ public class EventListener : MonoBehaviour
                 eAndR.gameEvent.Register(this);
             }
         }
-
-
     }
     private void OnDisable()
     {
@@ -54,7 +51,6 @@ public class EventListener : MonoBehaviour
     }
 }
 
-
 [System.Serializable]
 public class EventAndResponse
 {
@@ -65,6 +61,7 @@ public class EventAndResponse
     public ResponseWithInt responseForSentInt;
     public ResponseWithFloat responseForSentFloat;
     public ResponseWithBool responseForSentBool;
+    public ResponseWithPassable ResponseForPassable;
 
     public void EventRaised()
     {
@@ -97,26 +94,31 @@ public class EventAndResponse
         {
             responseForSentBool.Invoke(gameEvent.sentBool);
         }
+        // passable
+        if (ResponseForPassable.GetPersistentEventCount() >= 1)
+        {
+            ResponseForPassable.Invoke(gameEvent.sentPassable);
+        }
 
     }
 }
-
 [System.Serializable]
 public class ResponseWithString : UnityEvent<string>
 {
 }
-
 [System.Serializable]
 public class ResponseWithInt : UnityEvent<int>
 {
 }
-
 [System.Serializable]
 public class ResponseWithFloat : UnityEvent<float>
 {
 }
-
 [System.Serializable]
 public class ResponseWithBool : UnityEvent<bool>
+{
+}
+[System.Serializable]
+public class ResponseWithPassable : UnityEvent<DataPassWithEvent>
 {
 }

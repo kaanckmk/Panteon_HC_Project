@@ -10,10 +10,10 @@ public class GameEvent : ScriptableObject
     public int sentInt;
     public float sentFloat;
     public bool sentBool;
+    public DataPassWithEvent sentPassable;
 
     private List<EventListener> eventListeners = new List<EventListener>();
-
-
+    
     public void Raise()
     {
         for (int i = eventListeners.Count - 1; i >= 0; i--)
@@ -24,12 +24,10 @@ public class GameEvent : ScriptableObject
 
     public void Register(EventListener passedEvent)
     {
-
         if (!eventListeners.Contains(passedEvent))
         {
             eventListeners.Add(passedEvent);
         }
-
     }
 
     public void DeRegister(EventListener passedEvent)

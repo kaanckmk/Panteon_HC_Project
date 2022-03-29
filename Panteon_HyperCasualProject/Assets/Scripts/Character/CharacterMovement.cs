@@ -9,7 +9,7 @@ public abstract class CharacterMovement : MonoBehaviour
     [SerializeField] protected float _forwardSpeed;
     
     private Rigidbody _rigidbody;
-    private bool _isMoving=false;
+    private bool _isMoving = false;
     
     private void Awake()
     {
@@ -33,15 +33,39 @@ public abstract class CharacterMovement : MonoBehaviour
         return Vector3.forward * Time.deltaTime * _forwardSpeed;
     }
     
-    private void SetMovingFalse(GameObject obj)
+    public void SetMovingFalse(DataPassWithEvent rawData)
     {
-        _isMoving=false;
+        if (rawData.gameObject == gameObject)
+        {
+            _isMoving=false;
+        }
+        else
+        {
+            return;
+        }
     }
-    public void SetMovingFalse()
+    /*public void SetMovingFalse(DataPassWithEvent rawData)
     {
+        if (rawData.gameObject == gameObject)
+        {
         _isMoving=false;
+        }
+        else
+        {
+            return;
+        }
+    }*/
+    public void SetMovingTrue(DataPassWithEvent rawData)
+    {
+        if (rawData.gameObject == gameObject)
+        {
+            _isMoving=true;
+        }
+        else
+        {
+            return;
+        }
     }
-
     public void SetMovingTrue()
     {
         _isMoving=true;

@@ -18,7 +18,7 @@ public class PlayerMovement : CharacterMovement
     }
 
     private void FixedUpdate()
-    {  
+    {
         _offset = new Vector3(_mouseInput.MoveFactorX * _sidewaySpeed * Time.deltaTime,0f,0f);
         Move(_offset);
     }

@@ -1,10 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Timeline.Actions;
 using UnityEngine;
-using Object = UnityEngine.Object;
-using Random = UnityEngine.Random;
 
 public class ObstacleHit : MonoBehaviour
 {
@@ -14,10 +8,7 @@ public class ObstacleHit : MonoBehaviour
     {
         if (other.gameObject.GetComponent<CharacterMovement>() != null)
         {
-            //OnHit?.Invoke(other.gameObject);
-            onHit.sentBool = other.gameObject.GetComponent<PlayerMovement>() != null ? 
-                true : false;
-
+            onHit.sentPassable = other.gameObject.GetComponent<DataPassWithEvent>();
             onHit.Raise();
         }
     }
