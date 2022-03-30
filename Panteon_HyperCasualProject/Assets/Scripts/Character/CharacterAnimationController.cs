@@ -85,6 +85,31 @@ public class CharacterAnimationController : MonoBehaviour
             return;
         }
     }
+
+    public void AnimateEdgeMovement(DataPassWithEvent rawData)
+    {
+        if (rawData.gameObject == gameObject)
+        {   
+            _characterAnimator.SetBool("OnEdge", true);
+        }
+        else
+        {
+            return;
+        }
+        
+    }
+    public void StopEdgeMovementAnimation(DataPassWithEvent rawData)
+    {
+        if (rawData.gameObject == gameObject)
+        {   
+            _characterAnimator.SetBool("OnEdge", false);
+        }
+        else
+        {
+            return;
+        }
+        
+    }
     
     
     

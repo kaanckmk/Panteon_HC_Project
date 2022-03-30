@@ -10,27 +10,17 @@ public class RotatorStickPhysic : MonoBehaviour
     
     private Rigidbody _rigidbody;
 
-
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
     }
 
-    private void Update()
-    {
-    }
-
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.GetComponent<CharacterMovement>() != null)
-        {    
+        {
             Vector3 normal = other.GetContact(0).normal;
-            Debug.Log(normal);
-            Vector3 x = Quaternion.LookRotation(normal).eulerAngles;
-            
-            Rigidbody characterRb = other.gameObject.GetComponent<Rigidbody>();
-            
-            characterRb.AddForce( - normal );
+            other.gameObject.GetComponent<Rigidbody>().AddForce(-normal * pushingForce);
         }
     }
 }

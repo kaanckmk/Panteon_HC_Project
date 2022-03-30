@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 public class PlayerMovement : CharacterMovement
 {
     
@@ -13,7 +9,7 @@ public class PlayerMovement : CharacterMovement
 
     private void Update()
     {
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, PlatformData.MINPLATFORMXBOUNDRY, PlatformData.MAXPLATFORMXBOUNDRY),
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, PlatformData.MINPLATFORMXBOUNDRY - 0.2f, PlatformData.MAXPLATFORMXBOUNDRY + 0.2f), // let player fall on edges
             transform.position.y, transform.position.z);
     }
 
