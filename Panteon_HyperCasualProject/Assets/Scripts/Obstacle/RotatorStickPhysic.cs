@@ -17,7 +17,7 @@ public class RotatorStickPhysic : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.GetComponent<CharacterMovement>() != null)
+        if (other.gameObject.GetComponent<Character>() != null)
         {
             Vector3 normal = other.GetContact(0).normal;
             other.gameObject.GetComponent<Rigidbody>().AddForce(-normal * pushingForce);

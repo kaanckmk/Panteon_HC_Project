@@ -102,7 +102,6 @@ public class CameraController : MonoBehaviour
                 UnityEngine.Camera.main.DOShakePosition(0.2f, 0.01f, fadeOut: true);
             }
         }
-
         public void InitializeCamera(DataPassWithEvent rawData)
         {
             if(CheckIsPlayer(rawData))

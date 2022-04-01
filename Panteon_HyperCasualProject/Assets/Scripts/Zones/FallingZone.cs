@@ -7,7 +7,7 @@ public class FallingZone : MonoBehaviour
     public GameEvent OnFall;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<CharacterMovement>() != null)
+        if (other.gameObject.GetComponent<Character>() != null)
         {
             Debug.Log("falling");
             Debug.Log(other.gameObject.name);

@@ -6,7 +6,7 @@ public class FinishLine : MonoBehaviour
        
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.GetComponent<CharacterMovement>() != null)
+        if (other.gameObject.GetComponent<Character>() != null)
         {
             OnFinishLineEntered.sentPassable = other.gameObject.GetComponent<DataPassWithEvent>();
             OnFinishLineEntered.Raise();

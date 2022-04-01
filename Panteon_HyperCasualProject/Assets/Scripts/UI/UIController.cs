@@ -6,28 +6,37 @@ using UnityEngine;
 public class UIController : MonoBehaviour
 {
     [SerializeField] private GameObject startPanel;
-    [SerializeField] private GameObject PaintingPanel;
+    [SerializeField] private GameObject paintingPanel;
 
+    private GameObject _target;
+    
+    private void Start()
+    {
+        _target = FindObjectOfType<PlayerMovement>().gameObject;
+        Debug.Log(_target.name);
+    }
 
     public void ActivateStartPanel()
     {
-        startPanel.SetActive(true);
+            startPanel.SetActive(true);
     }
 
-    public void ActivatePaintingPanel()
+    public void ActivatePaintingPanel(DataPassWithEvent rawData)
     {
-        PaintingPanel.SetActive(true);
+        if (rawData.gameObject == _target)
+        {
+            paintingPanel.SetActive(true);
+        }
     }
 
     public void CloseStartPanel()
     {
-        startPanel.SetActive(false);
+            startPanel.SetActive(false);
     }
     public void ClosePaintingPanel()
     {
-        PaintingPanel.SetActive(false);
+            paintingPanel.SetActive(false);
     }
-    
     
 
 }

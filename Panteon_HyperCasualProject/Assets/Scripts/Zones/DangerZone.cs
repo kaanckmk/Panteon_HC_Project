@@ -10,7 +10,7 @@ public class DangerZone : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<CharacterMovement>() != null)
+        if (other.gameObject.GetComponent<Character>() != null)
         {
             Debug.Log("dangerZoneEntered!");
             OnEdgeEntered.sentPassable = other.gameObject.GetComponent<DataPassWithEvent>();
@@ -19,7 +19,7 @@ public class DangerZone : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.GetComponent<CharacterMovement>() != null)
+        if (other.gameObject.GetComponent<Character>() != null)
         {
             Debug.Log("dangerZoneExited!");
             OnEdgeExited.sentPassable = other.gameObject.GetComponent<DataPassWithEvent>();

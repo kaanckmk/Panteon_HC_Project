@@ -11,7 +11,7 @@ public class RotatingPlatformPhysic : MonoBehaviour
     
     private void OnCollisionStay(Collision other)
     {
-        if (other.gameObject.GetComponent<CharacterMovement>() !=null)
+        if (other.gameObject.GetComponent<Character>() !=null)
         {
             int direction = GetComponent<ObstacleTransform>().rotationZ;
             _offset = new Vector3(-direction * rotateForce * Time.deltaTime ,0f,0f);

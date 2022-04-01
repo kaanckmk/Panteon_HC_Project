@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class CharacterGamePlayController : EventRaiser
+public class CharacterCheckPoint : MonoBehaviour
 {
     [SerializeField] private Transform checkPointObject;
     

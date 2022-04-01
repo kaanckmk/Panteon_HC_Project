@@ -98,6 +98,7 @@ public class CharacterAnimationController : MonoBehaviour
         }
         
     }
+    
     public void StopEdgeMovementAnimation(DataPassWithEvent rawData)
     {
         if (rawData.gameObject == gameObject)
@@ -109,6 +110,18 @@ public class CharacterAnimationController : MonoBehaviour
             return;
         }
         
+    }
+
+    public void AnimateHitEachOther(DataPassWithEvent rawData)
+    {
+        if (rawData.gameObject == gameObject)
+        {   
+            _characterAnimator.SetBool("HitEachOther", true);
+        }
+    }
+    public void StopHitEachOtherAnimation()
+    { 
+        _characterAnimator.SetBool("HitEachOther", false);
     }
     
     

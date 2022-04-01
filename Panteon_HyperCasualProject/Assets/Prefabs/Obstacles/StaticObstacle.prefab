@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6246248779115744861}
   - component: {fileID: 4277961458878075798}
   - component: {fileID: -1464738875953411943}
+  - component: {fileID: 6591070705614388897}
   m_Layer: 0
   m_Name: StaticObstacle
   m_TagString: Untagged
@@ -108,4 +109,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f4e800d1ea177408ee6b83d58b1d69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkPointObject: {fileID: 7189053912960684192, guid: 8047d4dfa8133e24b832adf5724c3408, type: 3}
+  onHit: {fileID: 11400000, guid: 8a2c92b3fcfd18d4c9da568ac87943b6, type: 2}
+--- !u!208 &6591070705614388897
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5597937346940432264}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.064, y: 0.045, z: 0.021000002}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
