@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class MouseInput : MonoBehaviour
@@ -6,8 +7,18 @@ public class MouseInput : MonoBehaviour
     private float _moveFactorX;
     public float MoveFactorX => _moveFactorX;
 
+    private ScreenGuard _screenGuard;
+
+    private void Awake()
+    {
+        _screenGuard = new ScreenGuard();
+    }
+
     private void Update()
     {
+        _screenGuard.Update();
+        
+        
         if (Input.GetMouseButtonDown(0))
         {
             _lastFrameMousePositionX = Input.mousePosition.x;
