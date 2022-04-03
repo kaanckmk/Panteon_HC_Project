@@ -12,7 +12,7 @@ public class DangerZone : MonoBehaviour
     {
         if (other.gameObject.GetComponent<Character>() != null)
         {
-            Debug.Log("dangerZoneEntered!");
+            //Debug.Log("dangerZoneEntered!");
             OnEdgeEntered.sentPassable = other.gameObject.GetComponent<DataPassWithEvent>();
             OnEdgeEntered.Raise();
         }
@@ -21,7 +21,7 @@ public class DangerZone : MonoBehaviour
     {
         if (other.gameObject.GetComponent<Character>() != null)
         {
-            Debug.Log("dangerZoneExited!");
+            //Debug.Log("dangerZoneExited!");
             OnEdgeExited.sentPassable = other.gameObject.GetComponent<DataPassWithEvent>();
             OnEdgeExited.Raise();
         }

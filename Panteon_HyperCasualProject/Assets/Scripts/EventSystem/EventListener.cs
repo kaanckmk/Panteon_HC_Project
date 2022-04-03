@@ -62,6 +62,7 @@ public class EventAndResponse
     public ResponseWithFloat responseForSentFloat;
     public ResponseWithBool responseForSentBool;
     public ResponseWithPassable ResponseForPassable;
+    public ResponseWithPassableList ResponseForPassableList;
 
     public void EventRaised()
     {
@@ -99,6 +100,11 @@ public class EventAndResponse
         {
             ResponseForPassable.Invoke(gameEvent.sentPassable);
         }
+        // passable List
+        if (ResponseForPassableList.GetPersistentEventCount() >= 1)
+        {
+            ResponseForPassableList.Invoke(gameEvent.sentPassableList);
+        }
 
     }
 }
@@ -120,5 +126,9 @@ public class ResponseWithBool : UnityEvent<bool>
 }
 [System.Serializable]
 public class ResponseWithPassable : UnityEvent<DataPassWithEvent>
+{
+}
+[System.Serializable]
+public class ResponseWithPassableList : UnityEvent<List<DataPassWithEvent>>
 {
 }

@@ -7,21 +7,37 @@ using Random = UnityEngine.Random;
 public class CharacterCheckPoint : MonoBehaviour
 {
     [SerializeField] private Transform checkPointObject;
-    
-    public void SendCharacterToCheckPoint(DataPassWithEvent rawData)
+    private Vector3 _firstPosition;
+
+    private void Awake()
+    {
+        _firstPosition = transform.position;
+    }
+
+    public void SendCharacterFirstPosition(DataPassWithEvent rawData)
     {
         if (rawData.gameObject == gameObject)
         {
-            transform.position = checkPointObject.position;
-        }
-        else
-        {
-            return;
+            transform.position = _firstPosition;
         }
     }
-    public void SendCharacterToCheckPoint()
+    public void SendCharacterFirstPosition()
     {
-            transform.position = checkPointObject.position;
+        transform.position = _firstPosition;
+    }
+
+    public void SendCharactherToCheckPoint(DataPassWithEvent rawData)
+    {
+        if (rawData.gameObject == gameObject)
+        {
+            transform.position = new Vector3(UnityEngine.Random.Range(PlatformData.MINPLATFORMXBOUNDRY,PlatformData.MAXPLATFORMXBOUNDRY),_firstPosition.y,checkPointObject.position.z);
+        }
+        
+    }
+    public void SendCharactherToCheckPoint()
+    {
+            transform.position = new Vector3(UnityEngine.Random.Range(PlatformData.MINPLATFORMXBOUNDRY,PlatformData.MAXPLATFORMXBOUNDRY),_firstPosition.y,checkPointObject.position.z);
+        
     }
 
 }

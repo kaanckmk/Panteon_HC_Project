@@ -11,6 +11,7 @@ public class GameEvent : ScriptableObject
     public float sentFloat;
     public bool sentBool;
     public DataPassWithEvent sentPassable;
+    public List<DataPassWithEvent> sentPassableList;
 
     private List<EventListener> eventListeners = new List<EventListener>();
     

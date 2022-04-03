@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = System.Random;
 
 public class CharacterAnimationController : MonoBehaviour
 {
@@ -11,7 +12,6 @@ public class CharacterAnimationController : MonoBehaviour
     {
         _characterAnimator = transform.GetComponent<Animator>();
     }
-    
     public void AnimateIdle(DataPassWithEvent rawData)
     {
         if (rawData.gameObject == gameObject)
@@ -22,6 +22,10 @@ public class CharacterAnimationController : MonoBehaviour
         {
             return;
         }
+    }
+    public void AnimateIdle()
+    {   
+        _characterAnimator.SetBool("IsMoving",false);
     }
     public void AnimateMoveForward(DataPassWithEvent rawData)
     {
@@ -35,8 +39,8 @@ public class CharacterAnimationController : MonoBehaviour
         }
     }
     public void AnimateMoveForward()
-    { 
-            _characterAnimator.SetBool("IsMoving", true);
+    {
+        _characterAnimator.SetBool("IsMoving", true);
     }
 
     public void AnimateObstacleHit(DataPassWithEvent rawData)
@@ -123,7 +127,6 @@ public class CharacterAnimationController : MonoBehaviour
     { 
         _characterAnimator.SetBool("HitEachOther", false);
     }
-    
-    
+
     
 }

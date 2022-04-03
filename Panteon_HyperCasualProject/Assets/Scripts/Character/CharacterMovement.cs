@@ -1,6 +1,9 @@
+using System.Collections;
 using UnityEngine;
 public abstract class CharacterMovement : Character
 {
+    public GameEvent OnMovementDelayCreated;
+    
     [SerializeField] protected float _platformForwardSpeed;
     [SerializeField] protected float _onEdgeForwardSpeed;
     [SerializeField] protected float _sidewaySpeed;
@@ -8,6 +11,7 @@ public abstract class CharacterMovement : Character
     private protected float _speed;
     private protected bool _isMoving;
     private protected bool _OnEdge;
+    private float _movementDelay;
     
     private void Awake()
     {
@@ -19,17 +23,6 @@ public abstract class CharacterMovement : Character
     public virtual void Move()
     {
         SetSpeed();
-    }
-    public void SetMovingFalse(DataPassWithEvent rawData)
-    {
-        if (rawData.gameObject == gameObject)
-        {
-            _isMoving=false;
-        }
-        else
-        {
-            return;
-        }
     }
 
     public void SetSpeed()
@@ -50,6 +43,21 @@ public abstract class CharacterMovement : Character
     public void SetMovingTrue()
     {
         _isMoving=true;
+    }
+    public void SetMovingFalse(DataPassWithEvent rawData)
+    {
+        if (rawData.gameObject == gameObject)
+        {
+            _isMoving=false;
+        }
+        else
+        {
+            return;
+        }
+    }
+    public void SetMovingFalse()
+    {
+        _isMoving=false;
     }
 
     public void SetOnEdgeTrue(DataPassWithEvent rawData)
