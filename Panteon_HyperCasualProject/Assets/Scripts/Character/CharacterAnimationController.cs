@@ -10,7 +10,7 @@ public class CharacterAnimationController : MonoBehaviour
 
     private void Awake()
     {
-        _characterAnimator = transform.GetComponent<Animator>();
+        _characterAnimator = GetComponent<Animator>();
     }
     public void AnimateIdle(DataPassWithEvent rawData)
     {

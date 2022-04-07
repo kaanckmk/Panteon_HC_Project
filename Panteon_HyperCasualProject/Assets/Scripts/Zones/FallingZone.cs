@@ -9,8 +9,6 @@ public class FallingZone : MonoBehaviour
     {
         if (other.gameObject.GetComponent<Character>() != null)
         {
-            Debug.Log("falling");
-            Debug.Log(other.gameObject.name);
             OnFall.sentPassable = other.gameObject.GetComponent<DataPassWithEvent>();
             OnFall.Raise();
         }

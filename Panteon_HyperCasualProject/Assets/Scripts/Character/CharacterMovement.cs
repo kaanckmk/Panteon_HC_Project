@@ -2,8 +2,6 @@ using System.Collections;
 using UnityEngine;
 public abstract class CharacterMovement : Character
 {
-    public GameEvent OnMovementDelayCreated;
-    
     [SerializeField] protected float _platformForwardSpeed;
     [SerializeField] protected float _onEdgeForwardSpeed;
     [SerializeField] protected float _sidewaySpeed;
