@@ -37,10 +37,10 @@ public class LocomotionSimpleAgent : MonoBehaviour {
         if (Time.deltaTime > 1e-5f)
             velocity = smoothDeltaPosition / Time.deltaTime;
 
-        bool shouldMove = velocity.magnitude > 0.5f && agent.remainingDistance > agent.radius;
+        bool shouldMove = velocity.magnitude > 0.05f && agent.remainingDistance > agent.radius;
 
         // Update animation parameters
-        //anim.SetBool("IsMoving", shouldMove);
+        anim.SetBool("IsMoving", shouldMove);
         /*
         anim.SetFloat ("velx", velocity.x);
         anim.SetFloat ("vely", velocity.y);*/
@@ -49,13 +49,13 @@ public class LocomotionSimpleAgent : MonoBehaviour {
         if (lookAt)
             lookAt.lookAtTargetPosition = agent.steeringTarget + transform.forward;
         
-        /*
+        
         // Pull character towards agent
         if (worldDeltaPosition.magnitude > agent.radius)
-            transform.position = agent.nextPosition - 0.9f*worldDeltaPosition;*/
+            transform.position = agent.nextPosition - 0.9f*worldDeltaPosition;
         // Pull agent towards character
-        if (worldDeltaPosition.magnitude > agent.radius)
-            agent.nextPosition = transform.position + 0.9f*worldDeltaPosition;
+        /*if (worldDeltaPosition.magnitude > agent.radius)
+            agent.nextPosition = transform.position + 0.9f*worldDeltaPosition*/;
     }
 
     void OnAnimatorMove ()

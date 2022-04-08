@@ -13,6 +13,7 @@ public class PlayerMovement : CharacterMovement
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _rigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
     }
     
     

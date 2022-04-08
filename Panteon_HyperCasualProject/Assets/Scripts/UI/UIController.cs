@@ -3,13 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
+    public GameEvent OnPaintingFinished;
     [SerializeField] private GameObject startPanel;
-    [SerializeField] private GameObject paintingPanel;
     [SerializeField] private GameObject leaderBoardPanel;
+    [SerializeField] private GameObject paintCanvas;
+    [SerializeField] private GameObject RestartPanel;
+    [SerializeField] private Image fillAmountImage;
 
     [SerializeField] private List<GameObject> leadingUI;
 
@@ -25,6 +29,14 @@ public class UIController : MonoBehaviour
         _target = FindObjectOfType<PlayerMovement>().gameObject;
     }
 
+    private void Update()
+    {
+        if (fillAmountImage.fillAmount >= 0.998f)
+        {
+            OnPaintingFinished.Raise();
+        }
+    }
+
     public void ActivateStartPanel()
     {
             startPanel.SetActive(true);
@@ -34,7 +46,7 @@ public class UIController : MonoBehaviour
     {
         if (rawData.gameObject == _target)
         {
-            paintingPanel.SetActive(true);
+            paintCanvas.SetActive(true);
         }
     }
 
@@ -44,7 +56,7 @@ public class UIController : MonoBehaviour
     }
     public void ClosePaintingPanel()
     {
-            paintingPanel.SetActive(false);
+        paintCanvas.SetActive(false);
     }
 
     public void CloseLeaderBoard(DataPassWithEvent rawData)

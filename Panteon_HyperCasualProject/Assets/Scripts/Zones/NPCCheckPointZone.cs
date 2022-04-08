@@ -8,10 +8,8 @@ public class NPCCheckPointZone : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("some1 entered");
         if (other.gameObject.GetComponent<NPCMovement>() != null)
         {
-            Debug.Log("Entered");
             OnNPCCheckPointZoneEntered.sentPassable = other.gameObject.GetComponent<DataPassWithEvent>();
             OnNPCCheckPointZoneEntered.Raise();
         }

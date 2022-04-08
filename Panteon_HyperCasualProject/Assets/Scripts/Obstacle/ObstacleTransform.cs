@@ -65,9 +65,9 @@ public class ObstacleTransform : MonoBehaviour
     {
         float firstPosX = transform.position.x;
         Sequence PunchSequence = DOTween.Sequence();
-        PunchSequence.Append(transform.DOMoveX(CalculateWheretoMove(), 0.1f).SetDelay(4f).SetEase(Ease.Unset)
+        PunchSequence.Append(transform.DOMoveX(CalculateWheretoMove(), 0.6f).SetDelay(4f).SetEase(Ease.Unset).SetUpdate(UpdateType.Fixed)
                 .SetRelative())
-            .Append(transform.DOMoveX(firstPosX, 1f).SetDelay(1f).SetEase(Ease.Linear).SetDelay(2f));
+            .Append(transform.DOMoveX(firstPosX, 1f).SetDelay(1f).SetEase(Ease.Linear).SetDelay(2f).SetUpdate(UpdateType.Fixed));
         PunchSequence.SetLoops(-1, LoopType.Restart);
             
             

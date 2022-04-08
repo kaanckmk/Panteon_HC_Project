@@ -18,7 +18,6 @@ public class MouseInput : MonoBehaviour
     {
         _screenGuard.Update();
         
-        
         if (Input.GetMouseButtonDown(0))
         {
             _lastFrameMousePositionX = Input.mousePosition.x;
