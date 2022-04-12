@@ -23447,7 +23447,7 @@ MonoBehaviour:
   npcName: Panteon
   _platformForwardSpeed: 0.2
   _onEdgeForwardSpeed: 0.18
-  _sidewaySpeed: 0.05
+  _sidewaySpeed: 0.08
   _mouseInput: {fileID: 2111081453}
 --- !u!114 &8250247570449553080
 MonoBehaviour:
@@ -23793,7 +23793,7 @@ MonoBehaviour:
   async: 1
   downsampleSteps: 3
   registeredPaintableTexture: {fileID: 8669423944312409112}
-  cooldown: -1252.433
+  cooldown: -1276.9907
   currentReader:
     dirty: 0
     requested: 0
